@@ -29,8 +29,9 @@ while(cap.isOpened()):
 
     frame_threshed = cv2.inRange(hsv, PINK_MIN, PINK_MAX)
 
-    contours,hierarchy = cv2.findContours(frame_threshed, 1, 2)
-    max_area = 0
+    image, contours,hierarchy = cv2.findContours(frame_threshed, 1, 2)  ## Added "image, " to get rid of error when running on opencv 3.0.0
+    
+        max_area = 0
     last_x = centroid_x
     last_y = centroid_y
 
